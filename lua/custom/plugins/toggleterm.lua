@@ -89,12 +89,6 @@ function M.config()
         background = 'Normal',
       },
     },
-    winbar = {
-      enabled = true,
-      name_formatter = function(term) --  term: Terminal
-        return term.count
-      end,
-    },
   }
   vim.cmd [[
   augroup terminal_setup | au!

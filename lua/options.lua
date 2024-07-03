@@ -4,6 +4,7 @@
 --  For more options, you can see `:help option-list`
 
 vim.o.laststatus = 3
+vim.o.fillchars = 'eob: '
 
 -- Make line numbers default
 vim.opt.number = true

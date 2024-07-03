@@ -37,7 +37,7 @@ function M.config()
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
-			lualine_c = { "filetype", "filename" },
+			lualine_c = { { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } }, "filename" },
 			lualine_x = {},
 			lualine_y = { "swenv" },
 			lualine_z = { "progress", "location" },
