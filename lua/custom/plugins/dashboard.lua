@@ -21,20 +21,20 @@ return {
 	[[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
 	[[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
 	[[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
-	[[                 [ Data Science ]                   ]],
+	[[              [ Data Science IDE ]               ]],
         [[                                                    ]],
         [[                                                    ]] },
         -- stylua: ignore
         center = {
           { action =  "Telescope find_files",                                  desc = " Find File",      icon = " ", key = "f" },
-          { action = "ene | startinsert",                                  desc = " New File",       icon = " ", key = "e" },
-          { action = 'lua require("telescope").extensions.projects.projects()',    desc = " Projects",       icon = " ", key = "p" },
-          { action = "Telescope oldfiles",                                     desc = " Recent Files",   icon = " ", key = "r" },
-          { action ="Telescope live_grep",                                     desc = " Find Text",      icon = " ", key = "g" },
+          { action = "ene | startinsert",                                  desc = " New File",       icon = " ", key = "e" },
+          { action = 'lua require("telescope").extensions.projects.projects()',    desc = " Projects",       icon = " ", key = "p" },
+          { action = "Telescope oldfiles",                                     desc = " Recent Files",   icon = "󱑒 ", key = "r" },
+          { action ="Telescope live_grep",                                     desc = " Find Text",      icon = "󱩾 ", key = "g" },
           { action = function() vim.api.nvim_input(':e $MYVIMRC | :cd %:p:h<cr>') end,                              desc = " Config",         icon = " ",  key = "c" },
           { action =function() vim.api.nvim_input("<cmd>qa<cr>") end     ,                                                desc = " Quit",           icon = " ", key = "q" },
         },
-        footer = {"lucasvoirin/neovim.nvim"}
+        footer = {"lucasvoirin/nvim-ide"}
       },
     }
 
