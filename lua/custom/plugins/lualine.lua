@@ -40,7 +40,7 @@ function M.config()
 			lualine_c = { { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } }, "filename" },
 			lualine_x = {},
 			lualine_y = { "swenv" },
-			lualine_z = { "progress", "location" },
+			lualine_z = { {"location", separator = "/", padding = { left = 0, right = 0 }},"vim.fn.line('$')" },
 		},
 		inactive_sections = {
 			lualine_a = {},
