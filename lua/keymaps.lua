@@ -1,6 +1,11 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Toggleterm
+vim.keymap.set("n", "<C-s>", "<cmd>ToggleTermSendCurrentLine<CR>", {})
+--vim.keymap.set("n", "<C-sl>", "<cmd>ToggleTermSendVisualLines<CR>", {})
+vim.keymap.set("v", "<C-s>", "<cmd>ToggleTermSendVisualSelection<CR>", {})
+
 -- buffers
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })

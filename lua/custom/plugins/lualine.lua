@@ -24,7 +24,7 @@ function M.config()
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = {
 				statusline = { "TelescopePrompt", "dashboard", "bash" },
-				winbar = {"TelescopePrompt"},
+				winbar = { "TelescopePrompt" },
 			},
 			ignore_focus = {},
 			always_divide_middle = true,
@@ -36,11 +36,14 @@ function M.config()
 		},
 		sections = {
 			lualine_a = { "mode" },
-			lualine_b = { "branch", "diff", "diagnostics" },
-			lualine_c = { { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } }, "filename" },
+			lualine_b = { "branch" },
+			lualine_c = {
+				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+				"filename",
+			},
 			lualine_x = {},
 			lualine_y = { "swenv" },
-			lualine_z = { {"location", separator = "/", padding = { left = 0, right = 0 }},"vim.fn.line('$')" },
+			lualine_z = { { "location", separator = "/", padding = { left = 0, right = 0 } }, "vim.fn.line('$')" },
 		},
 		inactive_sections = {
 			lualine_a = {},
