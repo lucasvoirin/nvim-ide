@@ -39,7 +39,7 @@ function M.config()
 			lualine_b = { "branch" },
 			lualine_c = {
 				{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-				"filename",
+				{ "filename", padding = { left = 0, right = 1 } },
 			},
 			lualine_x = {},
 			lualine_y = { "swenv" },
