@@ -3,26 +3,31 @@
 require("lazy").setup({
 
 -- [[ Loading kickstart plugins]]
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+	require 'plugins.gitsigns',
+	require 'plugins.which-key',
+	require 'plugins.telescope',
+	require 'plugins.lspconfig',
+	require 'plugins.conform',
+	require 'plugins.cmp',
+	require 'plugins.tokyonight',
+	require 'plugins.todo-comments',
+	require 'plugins.treesitter',
+	require 'plugins.neo-tree',
+	require 'plugins.indent_line',
+	
+	"tpope/vim-sleuth",
 	{"numToStr/Comment.nvim", opts = {}},
-	require("kickstart/plugins/gitsigns"),
-	require("kickstart/plugins/which-key"),
-	require("kickstart/plugins/telescope"),
-	require("kickstart/plugins/lspconfig"),
-	require("kickstart/plugins/conform"),
-	require("kickstart/plugins/cmp"),
-	require("kickstart/plugins/tokyonight"),
-	require("kickstart/plugins/todo-comments"),
-  --	require("kickstart/plugins/mini"),
-	require("kickstart/plugins/treesitter"),
-	-- require 'kickstart.plugins.debug',
-	require("kickstart.plugins.indent_line"),
-	-- require 'kickstart.plugins.lint',
-	-- require 'kickstart.plugins.autopairs',
-	require("kickstart.plugins.neo-tree"),
 
- -- [[ Loading custom plugins ]]
-	{ import = "custom.plugins" },
+-- [[ Loading custom plugins ]]
+  require 'plugins.bufferline',
+  require 'plugins.dashboard',
+  require 'plugins.lualine',
+  require 'plugins.noice',
+  require 'plugins.project',
+  require 'plugins.quarto',
+  require 'plugins.swenv',
+  require 'plugins.toggleterm',
+  
 })
 
 -- vim: ts=2 sts=2 sw=2 et
