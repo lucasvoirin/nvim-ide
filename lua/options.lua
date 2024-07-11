@@ -6,8 +6,8 @@
 vim.o.laststatus = 3
 vim.o.fillchars = "eob: "
 
+-- Set Terminal window title
 vim.o.title = true
-
 vim.o.titlestring = "NEOVIM"
 
 -- Make line numbers default
@@ -20,8 +20,6 @@ vim.opt.mouse = "a"
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.opt.clipboard = "unnamedplus"
 
 -- Enable break indent

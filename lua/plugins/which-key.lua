@@ -10,6 +10,7 @@ function M.config()
 		["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 		["c"] = { "<cmd>confirm bd<CR>", "Close Buffer" },
 		["e"] = { "<cmd>Neotree toggle=true<CR>", "Explorer" },
+		["o"] = {"<CMD>lua require('oil').toggle_float()<CR>", "Oil"},
 		
 		a = {
 		  name = "Anaconda",
@@ -79,7 +80,7 @@ function M.config()
 		
 		t = {
 		  name = "Terminal",
-		  f = {"<cmd>ToggleTerm direction=float name=Floating<cr>", "Open floating terminal"}
+		  f = {"<cmd>ToggleTerm direction=float name=Terminal<cr>", "Open floating terminal"}
 		}
 		
 	}

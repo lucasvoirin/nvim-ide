@@ -7,14 +7,12 @@ require("lazy").setup({
 	require 'plugins.which-key',
 	require 'plugins.telescope',
 	require 'plugins.lspconfig',
-	require 'plugins.conform',
 	require 'plugins.cmp',
 	require 'plugins.tokyonight',
 	require 'plugins.todo-comments',
 	require 'plugins.treesitter',
 	require 'plugins.neo-tree',
 	require 'plugins.indent_line',
-	
 	"tpope/vim-sleuth",
 	{"numToStr/Comment.nvim", opts = {}},
 
@@ -27,7 +25,8 @@ require("lazy").setup({
   require 'plugins.quarto',
   require 'plugins.swenv',
   require 'plugins.toggleterm',
-  
+  require 'plugins.oil',
+  require 'plugins.rnvim',
 })
 
 -- vim: ts=2 sts=2 sw=2 et
