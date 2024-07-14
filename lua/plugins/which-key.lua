@@ -12,6 +12,12 @@ function M.config()
 		["e"] = { "<cmd>Neotree toggle=true<CR>", "Explorer" },
 		["o"] = {"<CMD>lua require('oil').toggle_float()<CR>", "Oil"},
 		
+    r = {
+      name = "R",
+      s = {"<Plug>RStart", "Start R REPL"},
+      o = {"<Plug>ROBToggle", "Toggle R Objects list"}
+    },
+
 		a = {
 		  name = "Anaconda",
 		  e = {"<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env"}
