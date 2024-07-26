@@ -2,12 +2,12 @@
 --  See `:help vim.keymap.set()`
 
 -- Toggleterm as REPL
-vim.keymap.set("n", "<C-s>", "<cmd>ToggleTermSendCurrentLine<CR>", {})
-vim.keymap.set("v", "<C-s>", "<cmd>ToggleTermSendVisualSelection<CR>", {})
+vim.keymap.set("n", "<C-s>", "<cmd>ToggleTermSendCurrentLine REPL<CR>", {})
+vim.keymap.set("v", "<C-s>", "<cmd>ToggleTermSendVisualSelection REPL<CR>", {})
 
 -- Buffers navigation
-vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+--vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+--vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- Resize with arrows
 vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", { silent = true })
@@ -34,9 +34,8 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
-
 -- R
-
 vim.keymap.set("n","<C-r>", "<Plug>RDSendLine")
 vim.keymap.set("v","<C-r>", "<Plug>RSendSelection")
--- vim: ts=2 sts=2 sw=2 et
+
+-- vim: ts=2 sts=2 sw=2 et:

@@ -11,7 +11,6 @@ require("lazy").setup({
 	require 'plugins.tokyonight',
 	require 'plugins.todo-comments',
 	require 'plugins.treesitter',
-	require 'plugins.neo-tree',
 	require 'plugins.indent_line',
 	"tpope/vim-sleuth",
 	{"numToStr/Comment.nvim", opts = {}},
