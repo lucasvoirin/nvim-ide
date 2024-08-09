@@ -102,7 +102,7 @@ return {
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
-          { name = 'cmp-r'},
+          --{ name = 'cmp-r'},
           { name = 'otter' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },

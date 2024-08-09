@@ -1,6 +1,6 @@
 return {
   "nvimdev/dashboard-nvim",
-  lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
+  lazy = false,
   opts = function()
 
     local opts = {
@@ -30,7 +30,6 @@ return {
           { action = "ene | startinsert",                                  desc = " New File",       icon = " ", key = "e" },
           { action = 'lua require("telescope").extensions.projects.projects()',    desc = " Projects",       icon = " ", key = "p" },
           { action = "Telescope oldfiles",                                     desc = " Recent Files",   icon = "󱑒 ", key = "r" },
-          { action ="Telescope live_grep",                                     desc = " Find Text",      icon = "󱩾 ", key = "g" },
           { action = function() vim.api.nvim_input(':e $MYVIMRC | :cd %:p:h<cr>') end,                              desc = " Config",         icon = " ",  key = "c" },
           { action =function() vim.api.nvim_input("<cmd>qa<cr>") end     ,                                                desc = " Quit",           icon = " ", key = "q" },
         },

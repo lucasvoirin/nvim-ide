@@ -2,8 +2,9 @@
 --  See `:help vim.keymap.set()`
 
 -- Toggleterm as REPL
-vim.keymap.set("n", "<C-s>", "<cmd>ToggleTermSendCurrentLine REPL<CR>", {})
-vim.keymap.set("v", "<C-s>", "<cmd>ToggleTermSendVisualSelection REPL<CR>", {})
+--vim.keymap.set("n", "<C-s>", "<cmd>ToggleTermSendCurrentLine REPL<CR>", {})
+--vim.keymap.set("v", "<C-s>", "<cmd>ToggleTermSendVisualSelection REPL<CR>", {})
+
 
 -- Buffers navigation
 --vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
@@ -34,8 +35,21 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
--- R
-vim.keymap.set("n","<C-r>", "<Plug>RDSendLine")
-vim.keymap.set("v","<C-r>", "<Plug>RSendSelection")
 
+-- Open custom ToggleTerm
+local Terminal  = require('toggleterm.terminal').Terminal
+local repl = Terminal:new({
+  display_name = "REPL", 
+  direction = "vertical",
+  hidden = true
+})
+function _repl_toggle() repl:toggle() end
+vim.keymap.set({"n", "i", "t"}, "<c-^>", "<cmd>lua _repl_toggle()<CR>", {noremap = true, silent = true})
+local terminal = Terminal:new({
+ display_name = "Terminal", 
+ direction = "float"
+})
+function _terminal_toggle() terminal:toggle() end
+vim.keymap.set({"n", "i", "t"}, "<c-\\>", "<cmd>lua _terminal_toggle()<CR>", {noremap = true, silent = true})
+    
 -- vim: ts=2 sts=2 sw=2 et:

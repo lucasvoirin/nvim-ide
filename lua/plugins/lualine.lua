@@ -1,35 +1,28 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons",
+  'archibate/lualine-time',
+  'justinhj/battery.nvim'},
   config = function ()
   
-  -- Config R status
-              local rstt =
-            {
-                { " ", "#aaaaaa" }, -- 1: ftplugin/* sourced, but nclientserver not started yet.
-                { " off", "#757755" }, -- 2: nclientserver started, but not ready yet.
-                { " off", "#117711" }, -- 3: nclientserver is ready.
-                { " off", "#ff8833" }, -- 4: nclientserver started the TCP server
-                { " off", "#3388ff" }, -- 5: TCP server is ready
-                { " starting...", "#ff8833" }, -- 6: R started, but nvimcom was not loaded yet.
-                { " on", "#3388ff" }, -- 7: nvimcom is loaded.
-            }
+  
+  require("battery").setup({
+	update_rate_seconds = 10,           -- Number of seconds between checking battery status
+	show_status_when_no_battery = true, -- Don't show any icon or text when no battery found (desktop for example)
+	show_plugged_icon = true,           -- If true show a cable icon alongside the battery icon when plugged in
+	show_unplugged_icon = false,         -- When true show a diconnected cable icon when not plugged in
+	show_percent = false,                -- Whether or not to show the percent charge remaining in digits
+    vertical_icons = true,              -- When true icons are vertical, otherwise shows horizontal battery icon
+    multiple_battery_selection = 1,     -- Which battery to choose when multiple found. "max" or "maximum", "min" or "minimum" or a number to pick the nth battery found (currently linux acpi only)
+})
+  local nvimbattery = {
+  function()
+    return require("battery").get_status_line()
+  end,
+}
 
-            local rstatus = function ()
-                if not vim.g.R_Nvim_status or vim.g.R_Nvim_status == 0 then
-                    -- No R file type (R, Quarto, Rmd, Rhelp) opened yet
-                    return ""
-                end
-                return rstt[vim.g.R_Nvim_status][1]
-            end
 
-            local rsttcolor = function ()
-                if not vim.g.R_Nvim_status or vim.g.R_Nvim_status == 0 then
-                    -- No R file type (R, Quarto, Rmd, Rhelp) opened yet
-                    return { fg = "#000000" }
-                end
-                return { fg = rstt[vim.g.R_Nvim_status][2] }
-            end
+
 
     require("lualine").setup({
       init = function()
@@ -50,7 +43,6 @@ return {
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = { "TelescopePrompt", "dashboard", "bash"},
-          winbar = { "TelescopePrompt" },
         },
         ignore_focus = {},
         always_divide_middle = true,
@@ -66,15 +58,20 @@ return {
           'vim.fn.getcwd()'
         },
         lualine_c = {
-           "branch",
-           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-           { "filename", padding = { left = 0, right = 1 } },
-        },
-        lualine_x = {},
-        lualine_y = { {rstatus, color = rsttcolor }, "swenv" },
-        lualine_z = { { "location", separator = "/", padding = { left = 0, right = 0 } }, "vim.fn.line('$')" },
-      },
-      extensions = { "toggleterm", "neo-tree", "oil" },
+          
+            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+      { "filename", padding = { left = 0, right = 1 } , show_modified_status = true}},
+        
+        lualine_y = {{ "location", separator = "/", padding = { left = 0, right = 0 } }, "vim.fn.line('$')" },
+        lualine_x = {  "branch",
+          {"swenv",
+            cond = function() return vim.bo.filetype == "python" end,
+            icon = "",
+            color = { fg = "#8fb55e" }
+          }},
+        lualine_z = {'ctime', nvimbattery}},
+        
+      extensions = { "toggleterm", "oil"},
     })
   end
 }

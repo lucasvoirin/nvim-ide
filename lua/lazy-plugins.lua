@@ -2,7 +2,6 @@
 
 require("lazy").setup({
 
--- [[ Loading kickstart plugins]]
 	require 'plugins.gitsigns',
 	require 'plugins.which-key',
 	require 'plugins.telescope',
@@ -12,11 +11,7 @@ require("lazy").setup({
 	require 'plugins.todo-comments',
 	require 'plugins.treesitter',
 	require 'plugins.indent_line',
-	"tpope/vim-sleuth",
 	{"numToStr/Comment.nvim", opts = {}},
-
--- [[ Loading custom plugins ]]
-  require 'plugins.bufferline',
   require 'plugins.dashboard',
   require 'plugins.lualine',
   require 'plugins.noice',
@@ -25,7 +20,8 @@ require("lazy").setup({
   require 'plugins.swenv',
   require 'plugins.toggleterm',
   require 'plugins.oil',
-  require 'plugins.rnvim',
+  require 'plugins.iron',
+  
 })
 
 -- vim: ts=2 sts=2 sw=2 et
