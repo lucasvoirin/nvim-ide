@@ -21,6 +21,15 @@ require("lazy").setup({
   require 'plugins.toggleterm',
   require 'plugins.oil',
   require 'plugins.iron',
+  require 'plugins.headlines',
+ 
+   {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup {}
+      require('nvim-autopairs').remove_rule '`'
+    end,
+  },
   
 })
 
