@@ -10,7 +10,7 @@ vim.g.showcmd=false
 -- [[ Setting options ]]
 require 'options'
 
--- [[ Strat Lazy plugin manager ]]
+-- [[ Start Lazy plugin manager ]]
 require 'lazy-bootstrap'
 
 -- [[ Configure and install plugins ]]
