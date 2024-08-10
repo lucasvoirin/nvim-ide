@@ -28,11 +28,7 @@ return {
         },
       },
       'saadparwaiz1/cmp_luasnip',
-
-      -- Adds other completion capabilities.
-      --  nvim-cmp does not ship with all sources by default. They are split
-      --  into multiple repos for maintenance purposes.
-            'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
@@ -68,17 +64,15 @@ return {
         --
         -- No, but seriously. Please read `:help ins-completion`, it is really good!
         mapping = cmp.mapping.preset.insert {
-        
-        
-        
-            ['<Right>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.abort()  -- Ferme le menu d'autocomplétion
-      else
-        fallback()  -- Sinon, effectue l'action par défaut (déplacement du curseur)
-      end
-    end, { 'i', 's' }),
-        
+          -- Exit autocomp when pressing right arrow
+          ['<Right>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.abort()  -- Ferme le menu d'autocomplétion
+            else
+              fallback()  -- Sinon, effectue l'action par défaut (déplacement du curseur)
+            end
+          end, { 'i', 's' }),
+
           -- Select the [n]ext item
           ['<C-n>'] = cmp.mapping.select_next_item(),
           -- Select the [p]revious item

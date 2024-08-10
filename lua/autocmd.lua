@@ -1,6 +1,5 @@
 -- [[ Autocommands ]]
 
-
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
@@ -18,3 +17,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt_local.relativenumber = false
   end
 })
+
+-- Remove LSP diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end

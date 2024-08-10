@@ -21,17 +21,17 @@ return {
 	[[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
 	[[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
 	[[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
-	[[              [ Data Science IDE ]               ]],
+	[[               [ Data Science IDE ]                 ]],
         [[                                                    ]],
         [[                                                    ]] },
         -- stylua: ignore
         center = {
-          { action =  "Telescope find_files",                                  desc = " Find File",      icon = " ", key = "f" },
-          { action = "ene | startinsert",                                  desc = " New File",       icon = " ", key = "e" },
-          { action = 'lua require("telescope").extensions.projects.projects()',    desc = " Projects",       icon = " ", key = "p" },
-          { action = "Telescope oldfiles",                                     desc = " Recent Files",   icon = "󱑒 ", key = "r" },
-          { action = function() vim.api.nvim_input(':e $MYVIMRC | :cd %:p:h<cr>') end,                              desc = " Config",         icon = " ",  key = "c" },
-          { action =function() vim.api.nvim_input("<cmd>qa<cr>") end     ,                                                desc = " Quit",           icon = " ", key = "q" },
+          { action =  "Telescope find_files",                                          desc = " Find File",      icon = " ", key = "f" },
+          { action = "ene | startinsert",                                              desc = " New File",       icon = " ", key = "e" },
+          { action = 'lua require("telescope").extensions.projects.projects()',        desc = " Projects",       icon = " ", key = "p" },
+          { action = "Telescope oldfiles",                                             desc = " Recent Files",   icon = "󱑒 ", key = "r" },
+          { action = function() vim.api.nvim_input(':e $MYVIMRC | :cd %:p:h<cr>') end, desc = " Config",         icon = " ", key = "c" },
+          { action =function() vim.api.nvim_input("<cmd>qa<cr>") end     ,             desc = " Quit",           icon = " ", key = "q" },
         },
         footer = {"lucasvoirin/nvim-ide"}
       },
@@ -42,18 +42,18 @@ return {
       button.key_format = "  %s"
     end
 
-    -- open dashboard after closing lazy
-    if vim.o.filetype == "lazy" then
-      vim.api.nvim_create_autocmd("WinClosed", {
-        pattern = tostring(vim.api.nvim_get_current_win()),
-        once = true,
-        callback = function()
-          vim.schedule(function()
-            vim.api.nvim_exec_autocmds("UIEnter", { group = "dashboard" })
-          end)
-        end,
-      })
-    end
+    -- -- open dashboard after closing lazy
+    -- if vim.o.filetype == "lazy" then
+    --   vim.api.nvim_create_autocmd("WinClosed", {
+    --     pattern = tostring(vim.api.nvim_get_current_win()),
+    --     once = true,
+    --     callback = function()
+    --       vim.schedule(function()
+    --         vim.api.nvim_exec_autocmds("UIEnter", { group = "dashboard" })
+    --       end)
+    --     end,
+    --   })
+    -- end
 
     return opts
   end,
