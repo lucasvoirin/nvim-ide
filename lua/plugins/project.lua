@@ -6,7 +6,7 @@ return {
       on_config_done = nil,
       manual_mode = true,
       detection_methods = { "pattern" },
-      patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pom.xml" , ".Rproj.user" },
+      patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pom.xml" , ".Rproj.user", "README.md" },
       ignore_lsp = {},
       exclude_dirs = {},
       show_hidden = false,
